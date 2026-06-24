@@ -1,0 +1,8 @@
+services:
+  ai-incident-agent:
+    build: .
+    container_name: ai-incident-agent
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "database timeout after deployment",
+    "input": {
+      "service_name": "payment-api",
+      "environment": "production",
+      "incident": "After deployment, users receive 500 errors. Logs show database timeout and increased latency."
+    },
+    "expected": {
+      "severity": "high",
+      "incident_type": "database_timeout",
+      "must_include_actions": ["database", "deployment"]
+    }
+  },
+  {
+    "name": "gateway network issue in staging",
+    "input": {
+      "service_name": "gateway-api",
+      "environment": "staging",
+      "incident": "Requests fail because of DNS resolution errors and gateway timeout."
+    },
+    "expected": {
+      "severity": "medium",
+      "incident_type": "network_issue",
+      "must_include_actions": ["network", "DNS"]
+    }
+  },
+  {
+    "name": "auth token validation issue",
+    "input": {
+      "service_name": "auth-api",
+      "environment": "production",
+      "incident": "Users receive 401 unauthorized errors after token validation changes."
+    },
+    "expected": {
+      "severity": "high",
+      "incident_type": "auth_issue",
+      "must_include_actions": ["token", "permission"]
+    }
+  }
+]
