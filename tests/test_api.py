@@ -12,6 +12,15 @@ def test_health_check_returns_ok():
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
 
+def test_version_returns_application_metadata():
+    response = client.get("/version")
+    data = response.json()
+
+    assert response.status_code == 200
+    assert data["app_name"] == "ai-incident-agent"
+    assert data["app_version"] == "0.1.0"
+    assert data["model_name"] == "gpt-4o-mini"
+    assert data["llm_enabled"] is False
 
 def test_analyze_incident_returns_structured_response():
     payload = {
