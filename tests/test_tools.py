@@ -1,5 +1,10 @@
 from app.schemas import IncidentType
-from app.tools import check_recent_deployments, check_service_health, search_known_issues, suggest_remediation
+from app.tools import (
+    check_recent_deployments,
+    check_service_health,
+    search_known_issues,
+    suggest_remediation,
+)
 
 
 def test_check_service_health_returns_expected_structure():

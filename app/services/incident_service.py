@@ -1,9 +1,9 @@
 from time import perf_counter
 from uuid import uuid4
+
 from app.agent import analyze_incident_with_agent
 from app.logging_config import get_logger
 from app.schemas import IncidentAnalysisResponse, IncidentRequest
-
 
 logger = get_logger(__name__)
 

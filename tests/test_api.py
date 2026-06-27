@@ -2,7 +2,6 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-
 client = TestClient(app)
 
 
@@ -11,6 +10,7 @@ def test_health_check_returns_ok():
 
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
 
 def test_version_returns_application_metadata():
     response = client.get("/version")
@@ -22,11 +22,15 @@ def test_version_returns_application_metadata():
     assert data["model_name"] == "gpt-4o-mini"
     assert data["llm_enabled"] is False
 
+
 def test_analyze_incident_returns_structured_response():
     payload = {
         "service_name": "payment-api",
         "environment": "production",
-        "incident": "Payment API returns 500 after deployment. Logs show database timeout and increased latency.",
+        "incident": (
+            "Payment API returns 500 after deployment. "
+            "Logs show database timeout and increased latency."
+        ),
     }
 
     response = client.post("/analyze-incident", json=payload)

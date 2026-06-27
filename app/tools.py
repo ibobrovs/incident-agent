@@ -22,8 +22,7 @@ def search_known_issues(query: str) -> list[str]:
     query_words = set(query.lower().split())
 
     matched_issues = [
-        issue for issue in KNOWN_ISSUES
-        if query_words.intersection(issue.lower().split())
+        issue for issue in KNOWN_ISSUES if query_words.intersection(issue.lower().split())
     ]
 
     return matched_issues or KNOWN_ISSUES[:3]

@@ -9,7 +9,10 @@ def test_agent_returns_fallback_response_without_api_key(monkeypatch):
     request = IncidentRequest(
         service_name="payment-api",
         environment="production",
-        incident="Payment API returns 500 after deployment. Logs show database timeout and increased latency.",
+        incident=(
+            "Payment API returns 500 after deployment. "
+            "Logs show database timeout and increased latency."
+        ),
     )
 
     response = analyze_incident_with_agent(request, request_id="test-request")

@@ -1,8 +1,8 @@
 from fastapi import APIRouter
-from app.settings import settings
+
 from app.schemas import IncidentAnalysisResponse, IncidentRequest
 from app.services.incident_service import analyze_incident
-
+from app.settings import settings
 
 router = APIRouter()
 
@@ -10,6 +10,7 @@ router = APIRouter()
 @router.get("/health")
 def health_check() -> dict:
     return {"status": "ok"}
+
 
 @router.get("/version")
 def version() -> dict:
@@ -19,6 +20,7 @@ def version() -> dict:
         "model_name": settings.model_name,
         "llm_enabled": bool(settings.openai_api_key),
     }
+
 
 @router.post("/analyze-incident", response_model=IncidentAnalysisResponse)
 def analyze_incident_endpoint(request: IncidentRequest) -> IncidentAnalysisResponse:

@@ -3,7 +3,6 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field
 
-
 ShortText = Annotated[str, Field(min_length=1, max_length=300)]
 LongText = Annotated[str, Field(min_length=10, max_length=3000)]
 ActionText = Annotated[str, Field(min_length=3, max_length=300)]

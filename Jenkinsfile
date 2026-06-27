@@ -18,7 +18,7 @@ pipeline {
 
         stage('Run evals') {
             steps {
-                bat '.venv\\Scripts\\python evals/run_evals.py'
+                bat '.venv\\Scripts\\python -m evals.run_evals'
             }
         }
 

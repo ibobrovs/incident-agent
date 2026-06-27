@@ -1,7 +1,12 @@
 from langchain.tools import tool
 
 from app.schemas import IncidentType
-from app.tools import check_recent_deployments, check_service_health, search_known_issues, suggest_remediation
+from app.tools import (
+    check_recent_deployments,
+    check_service_health,
+    search_known_issues,
+    suggest_remediation,
+)
 
 
 @tool

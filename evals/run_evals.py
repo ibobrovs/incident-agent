@@ -1,9 +1,5 @@
 import json
-import sys
 from pathlib import Path
-
-ROOT_DIR = Path(__file__).resolve().parents[1]
-sys.path.append(str(ROOT_DIR))
 
 from app.agent import analyze_incident_with_agent
 from app.evaluator import evaluate_incident_response

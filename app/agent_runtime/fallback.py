@@ -1,6 +1,11 @@
 from app.incident_classifier import classify_incident_type, classify_severity
 from app.schemas import IncidentAnalysisResponse, IncidentRequest
-from app.tools import check_recent_deployments, check_service_health, search_known_issues, suggest_remediation
+from app.tools import (
+    check_recent_deployments,
+    check_service_health,
+    search_known_issues,
+    suggest_remediation,
+)
 
 
 def build_fallback_response(request: IncidentRequest) -> IncidentAnalysisResponse:

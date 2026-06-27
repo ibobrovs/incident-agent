@@ -4,11 +4,12 @@ from app.logging_config import get_logger
 from app.schemas import IncidentAnalysisResponse, IncidentRequest
 from app.settings import settings
 
-
 logger = get_logger(__name__)
 
 
-def analyze_incident_with_agent(request: IncidentRequest, request_id: str) -> IncidentAnalysisResponse:
+def analyze_incident_with_agent(
+    request: IncidentRequest, request_id: str
+) -> IncidentAnalysisResponse:
     logger.info(
         "agent_started",
         extra={

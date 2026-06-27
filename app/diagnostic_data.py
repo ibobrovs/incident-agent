@@ -1,6 +1,5 @@
 from app.schemas import IncidentType
 
-
 SERVICE_HEALTH_DATA = {
     "payment-api": {
         "status": "degraded",
